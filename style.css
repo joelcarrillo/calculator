@@ -1,0 +1,85 @@
+* {
+    box-sizing: border-box;
+}
+
+.calculator {
+    width: 400px;
+    height: 600px;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    flex-grow: 1;
+}
+
+.screen {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-family: monospace;
+}
+
+.numbers {
+    flex-grow: 1;
+    text-align: end;
+    font-size: 40px;
+    padding-right: 5px;
+}
+
+/* Normal buttons */
+
+.btn {
+    display: flex;
+    width: 25%;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    font-size: 30px;
+    background-color: #d8d9db;
+    color: black;
+}
+
+.btn:hover {
+    background-color: #eeeef0;
+    cursor: pointer;
+}
+
+.btn:active {
+    background-color: #b7b8b9;
+}
+
+.btn:focus {
+    outline: none;
+}
+
+/* Buttons for operations (orange ones), inherit from btn */
+
+.btn-op {
+    background-color: #df974c;
+    color: white;
+}
+
+.btn-op:hover {
+    background-color: #dfae7a;
+    cursor: pointer;
+}
+
+.btn-op:active {
+    background-color: #ca8133
+}
+
+.btn-op:focus {
+    outline: none;
+}
+
+.btn-c {
+    width: 50%;
+}
+
+.btn-0 {
+    width: 75%;
+}
