@@ -1,6 +1,5 @@
 const calculator = document.querySelector(".calculator");
 let stack = [];
-let operationsOrder = [];
 
 calculator.addEventListener("click", function (event) {
   const element = event.target;
@@ -30,7 +29,6 @@ calculator.addEventListener("click", function (event) {
       } else if (element.innerText === "C") {
         stack.splice(0, stack.length);
         clearScreen();
-        console.clear();
       } else if (element.innerText === "←") {
         removeNumber();
       }
@@ -38,7 +36,6 @@ calculator.addEventListener("click", function (event) {
       displayOnScreen(number);
     }
   }
-  console.log(stack);
 });
 
 function pushToStack() {
@@ -47,19 +44,15 @@ function pushToStack() {
 }
 
 function resolveStack() {
-  console.log("_____________________________________");
-  console.log(stack);
   while (stack.includes("*") || stack.includes("/")) {
     for (let index = 0; index < stack.length; index++) {
       if (stack[index] === "*") {
         stack[index] = stack[index - 1] * stack[index + 1];
         cutStack(index);
-        console.log(stack);
         break;
       } else if (stack[index] === "/") {
         stack[index] = stack[index - 1] / stack[index + 1];
         cutStack(index);
-        console.log(stack);
         break;
       }
     }
@@ -69,12 +62,10 @@ function resolveStack() {
       if (stack[index] === "+") {
         stack[index] = stack[index - 1] + stack[index + 1];
         cutStack(index);
-        console.log(stack);
         break;
       } else if (stack[index] === "-") {
         stack[index] = stack[index - 1] - stack[index + 1];
         cutStack(index);
-        console.log(stack);
         break;
       }
     }
