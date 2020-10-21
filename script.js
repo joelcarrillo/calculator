@@ -4,8 +4,7 @@ let stack = [];
 calculator.addEventListener("click", function (event) {
   const element = event.target;
   if (element.classList.contains("btn")) {
-    const number = parseInt(element.innerText);
-    if (isNaN(number)) {
+    if (!Number.isInteger(Number(element.innerText))) {
       if (element.innerText === "÷") {
         pushToStack();
         stack.push("/");
@@ -33,7 +32,7 @@ calculator.addEventListener("click", function (event) {
         removeNumber();
       }
     } else {
-      displayOnScreen(number);
+      displayOnScreen(element.innerText);
     }
   }
 });
